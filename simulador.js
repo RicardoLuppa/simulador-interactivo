@@ -105,4 +105,4 @@ for (i=0; i<habitacionesCobr; i++){
     totalHuespedes= totalHuespedes+total;
 }
 console.log('Total del cobro por alojamiento y servicios extra de las habitaciones: '+totalHuespedes);
-    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes); 
+    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes+'\n:::Por favor acerquese a recepcion con este ticket para realizar el pago :::\n:::GRACIAS POR ELEGIRNOS:::'); 
