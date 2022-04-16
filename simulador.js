@@ -1,6 +1,6 @@
 alert('Bienvenido al web chekout del hotel');
 let i;
-let totalHuespedes;
+let totalHuespedes=0;
 let huesped;
 let tarifaSimple= 8500;
 let tarifaSuperior = 12500;
@@ -84,8 +84,8 @@ function cobro (hospedaje, serrExt){
     
     console.log('Total del cobro por alojamiento y servicios extra del Sr/Sra '+huesped+' : '+total);
     alert(':::Su ticket Sr/Sra '+huesped+'::: \n :::Sus cargos por Hospedaje: '+ hospedaje +':::\n:::Sus cargos por extras:'+ serrExt+':::\n :::Cobro del Iva: '+ montoIva+':::\n:::Su total: '+total+':::\n:::Por favor acerquese a recepcion con este ticket para realizar el pago o continue para el pago total:::\n:::GRACIAS POR ELEGIRNOS:::');
-    totalHuespedes=totalHuespedes+total;
-    return total;
+    totalHuespedes=+ total;
+    return total; 
 }
 
 function checkout(nombre,apellido,noches,){
@@ -98,12 +98,11 @@ function checkout(nombre,apellido,noches,){
     tarifador(tarifaElegida, noches,);
     serviciosExtras(noches);
     cobro(tarifaTotal,totalExtra);
-    
 }
 let habitacionesCobr =parseInt(prompt('ingrese cantidad de habitaciones'));
 for (i=0; i<habitacionesCobr; i++){
     checkout(); 
-     
+    totalHuespedes= totalHuespedes+total;
 }
 console.log('Total del cobro por alojamiento y servicios extra de las habitaciones: '+totalHuespedes);
-    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes); //tengo problemas con la variable total huespedes, al ejecutalo me aparece como NaN y no encuentro el problema, en la line 87 deberia estar acumulando los valores del total en cada paso por el bucle.
+    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes); 
