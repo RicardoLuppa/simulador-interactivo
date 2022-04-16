@@ -1,5 +1,6 @@
 alert('Bienvenido al web chekout del hotel');
-
+let i;
+let totalHuespedes;
 let huesped;
 let tarifaSimple= 8500;
 let tarifaSuperior = 12500;
@@ -14,8 +15,8 @@ let total;
 const IVA= 1.21;
 const descSocio= 0.18;
 
-function tarifador(tarifa, cantnoches, habitaciones){
-    tarifaTotal = cantnoches*habitaciones*tarifa;
+function tarifador(tarifa, cantnoches,){
+    tarifaTotal = cantnoches*tarifa;
     console.log('Su cargo por hospedaje es: '+tarifaTotal);
     return tarifaTotal;
 }
@@ -80,8 +81,11 @@ function cobro (hospedaje, serrExt){
         alert('opcion ingresada incorrecta, recargue la pagina');
         
     }
-    console.log('Total del cobro por alojamiento y servicios extra: '+total);
-    alert(':::Su ticket::: \n :::Sus cargos por Hospedaje: '+ hospedaje +':::\n:::Sus cargos por extras:'+ serrExt+':::\n :::Cobro del Iva: '+ montoIva+':::\n:::Su total: '+total+':::\n:::Por favor acerquese a recepcion con este ticket para realizar el pago:::\n:::GRACIAS POR ELEGIRNOS:::');
+    
+    console.log('Total del cobro por alojamiento y servicios extra del Sr/Sra '+huesped+' : '+total);
+    alert(':::Su ticket Sr/Sra '+huesped+'::: \n :::Sus cargos por Hospedaje: '+ hospedaje +':::\n:::Sus cargos por extras:'+ serrExt+':::\n :::Cobro del Iva: '+ montoIva+':::\n:::Su total: '+total+':::\n:::Por favor acerquese a recepcion con este ticket para realizar el pago o continue para el pago total:::\n:::GRACIAS POR ELEGIRNOS:::');
+    totalHuespedes=totalHuespedes+total;
+    return total;
 }
 
 function checkout(nombre,apellido,noches,){
@@ -90,11 +94,16 @@ function checkout(nombre,apellido,noches,){
     huesped = (nombre+' '+apellido);
     console.log('Huesped: '+huesped);
     noches = parseInt(prompt('Ingrese la cantidad de noches que desea hospedarse:'));
-    let numerosHab = parseInt(prompt('ingrese numero de habitaciones a registrar'));
     eleccionHabitacion();
-    tarifador(tarifaElegida, noches, numerosHab);
+    tarifador(tarifaElegida, noches,);
     serviciosExtras(noches);
     cobro(tarifaTotal,totalExtra);
+    
 }
-
-checkout();
+let habitacionesCobr =parseInt(prompt('ingrese cantidad de habitaciones'));
+for (i=0; i<habitacionesCobr; i++){
+    checkout(); 
+     
+}
+console.log('Total del cobro por alojamiento y servicios extra de las habitaciones: '+totalHuespedes);
+    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes);
