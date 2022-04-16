@@ -106,4 +106,4 @@ for (i=0; i<habitacionesCobr; i++){
      
 }
 console.log('Total del cobro por alojamiento y servicios extra de las habitaciones: '+totalHuespedes);
-    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes);
+    alert('Su total a pagar por las habitaciones ocupadas: '+totalHuespedes); //tengo problemas con la variable total huespedes, al ejecutalo me aparece como NaN y no encuentro el problema, en la line 87 deberia estar acumulando los valores del total en cada paso por el bucle.
